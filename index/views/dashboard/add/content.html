@@ -1,0 +1,45 @@
+{{ define "content" }}
+<h1>
+    Yardım Ekle
+    <a href="/" class="btn btn-outline-primary float-right"><i class="fa fa-arrow-left"></i> Geri Dön</a>
+</h1>
+<hr>
+<form action="/add" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>İl</label>
+        <input type="text" name="city" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label>İlçe</label>
+        <input type="text" name="distict" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label>Adres</label>
+        <input type="text" name="adress" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label>Telefon</label>
+        <input type="number" name="number" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Açıklama</label>
+        <textarea name="description" cols="30" rows="2" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+        <label>Yardım Türü</label><br>
+        <label for="gıda"> Gıda</label>
+        <input type="checkbox" name="content" id="gıda" value="Gıda"> &nbsp;
+        <label for="giyim"> Giyim</label>
+        <input type="checkbox" name="content" id="giyim" value="Giyim"> &nbsp;
+        <label for="barınma"> Barınma</label>
+        <input type="checkbox" name="content" id="barınma" value="Barınma"> &nbsp;
+        <label for="sağlık"> Sağlık</label>
+        <input type="checkbox" name="content" id="sağlık" value="Sağlık"> &nbsp;
+        <label for="Ekipman"> Ekipman</label>
+        <input type="checkbox" name="content" id="Ekipman" value="Ekipman"> &nbsp;
+        <label for="Diğer"> Diğer</label>
+        <input type="checkbox" name="content" id="Diğer" value="Diğer"> &nbsp;
+    </div>
+    <button type="submit" class="btn btn-outline-success w-100 my-3">Kaydet</button>
+</form>
+{{ end }}

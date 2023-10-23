@@ -1,0 +1,36 @@
+{{ define "content" }}
+<h1>
+    Yardım Listesi
+    <a href="/admin/yeni-ekle" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i> Yeni Yardım Ekle</a>
+</h1>
+<hr>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Yardım Türü</th>
+        <th scope="col">İl</th>
+        <th scope="col">İlçe</th>
+        <th scope="col">Eklenme Tarihi</th>
+        <th scope="col">İşlemler</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ range $index, $value := .List }}
+    <tr>
+        <th scope="row">{{ $value.Id }}</th>
+        <td>{{ $value.Content }}</td>
+        <td>{{ $value.City }}</td>
+        <td>{{ $value.Distict }}</td>
+        <td>{{ $value.CreatedAt }}</td>
+        <td>
+            <a href="/admin/detay/{{ $value.Id }}" class="btn btn-outline-primary"><i class="fa fa-eye"></i></a>
+            <a href="/admin/edit/{{ $value.Id }}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
+            <a href="/admin/delete/{{ $value.Id }}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+        </td>
+    </tr>
+    {{ end }}
+    </tbody>
+</table>
+{{ end }}
