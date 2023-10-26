@@ -1,7 +1,7 @@
 {{ define "content" }}
 <h1>
-    Yardım Listesi
-    <a href="yeni-ekle" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i> Yeni Yardım Ekle</a>
+    Kayıt Güncelleme Listesi
+    <a href="/admin" class="btn btn-outline-primary float-right"><i class="fa fa-arrow-left"></i> Geri Dön</a>
 </h1>
 <hr>
 <!-- DataTales Example -->
@@ -23,17 +23,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{ range $index, $value := .List }}
+                {{ range $index, $value := .Update }}
                 <tr>
-                    <th scope="row">{{ $value.Id }}</th>
+                    <th scope="row">{{ $value.Update_Id }}</th>
                     <td>{{ $value.Content }}</td>
                     <td>{{ $value.City }}</td>
                     <td>{{ $value.Distict }}</td>
                     <td>{{ $value.CreatedAt }}</td>
                     <td>
-                        <a href="/detail/{{ $value.Id }}" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i> Detay</a>
-                        <a href="/" class="btn btn-outline-primary btn-sm"><i class="fa fa-location-arrow"></i> Konum</a>
-                        <a href="/edit/{{ $value.Id }}" class="btn btn-outline-secondary btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="/admin/update-check/{{ $value.Id }}" class="btn btn-outline-primary"><i class="fa fa-info"></i></a>
+                        <a href="/admin/reqdelete/{{ $value.Id }}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
                 {{ end }}
@@ -42,6 +41,4 @@
         </div>
     </div>
 </div>
-<p class="mb-4 text-center">Yardım ulaşan bölgelerdeki vatandaşların yardımlardan haberdar olabilmesi için, lütfen teyitli noktalardaki yardımları depremzedeler ile paylaşınız.</p>
-
 {{ end }}

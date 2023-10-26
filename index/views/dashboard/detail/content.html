@@ -1,7 +1,7 @@
 {{ define "content" }}
 <h1>
-    Yardım Listesi
-    <a href="yeni-ekle" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i> Yeni Yardım Ekle</a>
+    Detaylar
+    <a href="/" class="btn btn-outline-primary float-right"><i class="fa fa-arrow-left"></i> Geri Dön</a>
 </h1>
 <hr>
 <!-- DataTales Example -->
@@ -19,22 +19,25 @@
                     <th>İl</th>
                     <th>İlçe</th>
                     <th>Eklenme Tarihi</th>
+                    <th>Adres</th>
+                    <th>Telefon No</th>
+                    <th>Açıklama</th>
                     <th>İşlemler</th>
                 </tr>
                 </thead>
                 <tbody>
-                {{ range $index, $value := .List }}
+                {{ range $index, $value := . }}
                 <tr>
                     <th scope="row">{{ $value.Id }}</th>
                     <td>{{ $value.Content }}</td>
                     <td>{{ $value.City }}</td>
                     <td>{{ $value.Distict }}</td>
                     <td>{{ $value.CreatedAt }}</td>
+                    <td>{{ $value.Adress }}</td>
+                    <td>{{ $value.Number }}</td>
+                    <td>{{ $value.Description }}</td>
                     <td>
-                        <a href="/detail/{{ $value.Id }}" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></i> Detay</a>
-                        <a href="/" class="btn btn-outline-primary btn-sm"><i class="fa fa-location-arrow"></i> Konum</a>
-                        <a href="/edit/{{ $value.Id }}" class="btn btn-outline-secondary btn-sm"><i class="fa fa-edit"></i></a>
-                    </td>
+                        <a href="/detail/{{ $value.Id }}" class="btn btn-outline-primary btn-sm"><i class="fa fa-location-arrow"></i> Konum</a>
                 </tr>
                 {{ end }}
                 </tbody>
@@ -42,6 +45,4 @@
         </div>
     </div>
 </div>
-<p class="mb-4 text-center">Yardım ulaşan bölgelerdeki vatandaşların yardımlardan haberdar olabilmesi için, lütfen teyitli noktalardaki yardımları depremzedeler ile paylaşınız.</p>
-
 {{ end }}

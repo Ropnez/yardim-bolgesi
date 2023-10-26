@@ -86,3 +86,35 @@ func (dashboard Dashboard) Update(w http.ResponseWriter, r *http.Request, params
 	})
 	http.Redirect(w, r, "/edit/"+params.ByName("id"), http.StatusSeeOther)
 }
+
+func (dashboard Dashboard) UserUpdate(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
+	updateId := models.List{}.Get(params.ByName("id"))
+	content := r.FormValue("content")
+	city := r.FormValue("city")
+	distict := r.FormValue("distict")
+	adress := r.FormValue("adress")
+	number := r.FormValue("number")
+	description := r.FormValue("description")
+
+	models.UserUpdate{
+		Update_Id:   updateId.Id,
+		Content:     content,
+		City:        city,
+		Distict:     distict,
+		Adress:      adress,
+		Number:      number,
+		Description: description,
+	}.Add()
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+
+func (dashboard Dashboard) Detail(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
+	view, err := template.ParseFiles(helpers.Include("dashboard/detail")...)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	data := make(map[string]interface{})
+	data["Detail"] = models.List{}.Get(params.ByName("id"))
+	view.ExecuteTemplate(w, "index", data)
+}
