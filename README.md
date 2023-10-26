@@ -28,8 +28,8 @@ Proje yerel olarak çalıştırılmak isteniyorsa, Go programlama dilinin yükl�
 
 Eğer projeye katkıda bulunmak istiyorsanız, lütfen aşağıdaki adımları takip edin:
 
-1. Bu depoyu çatallayın (fork).
-2. Kendi çatalınızda çalışın.
+1. Bu depoyu forklayın.
+2. Kendi forkunuzda çalışın.
 3. Değişikliklerinizi yapın ve iyileştirmelerinizi ekleyin.
 4. Pull isteği (pull request) gönderin.
 
