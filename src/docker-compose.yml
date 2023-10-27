@@ -9,14 +9,14 @@ services:
     volumes:
       - mysqldata:/var/lib/mysql
   phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        restart: always
-        ports:
-            - 8080:80
-        environment:
-          - PMA_ARBITRARY=1
-          - PMA_HOST=db
-  yaridm:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+  yardim:
     build: .
     ports:
       - 80:8080

@@ -1,4 +1,4 @@
 FROM golang:alpine
-WORKDIR /go/src/app
+WORKDIR /yardim-bolgesi/src
 COPY . .
-CMD ["go/src/app/yardimbol"]
+CMD ["/yardim-bolgesi/src/yardimbol"]
