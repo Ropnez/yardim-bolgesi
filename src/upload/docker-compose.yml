@@ -21,7 +21,7 @@ services:
     ports:
       - 80:8080
     volumes:
-      - yardimdata:/yardim-bolgesi
+      - yardimdata:/upload
 
 volumes:
   mysqldata:
