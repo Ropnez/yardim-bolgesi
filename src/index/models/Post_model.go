@@ -21,7 +21,7 @@ func (list List) Migrate() {
 	db.AutoMigrate(&List{})
 }
 
-func (list List) Add() {
+func (list List) Add() { 
 	db, err := gorm.Open(mysql.Open(Dns), &gorm.Config{})
 	if err != nil {
 		fmt.Println(err.Error())
