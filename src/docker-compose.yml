@@ -9,19 +9,24 @@ services:
     volumes:
       - mysqldata:/var/lib/mysql
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    ports:
-      - 8080:80
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=db
+        image: phpmyadmin/phpmyadmin
+        restart: always
+        ports:
+            - 8080:80
+        environment:
+          - PMA_ARBITRARY=1
+          - PMA_HOST=db
   yardim:
     build: .
     ports:
       - 80:8080
+      - 443:443
     volumes:
       - yardimdata:/yardim-bolgesi
+      - /path/to/ssl/cert:/etc/ssl/cert
+    environment:
+      SSL_CERT_FILE: /etc/ssl/cert/certificate.crt
+      SSL_KEY_FILE: /etc/ssl/cert/private.key
 
 volumes:
   mysqldata:
