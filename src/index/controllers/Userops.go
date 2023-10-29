@@ -6,8 +6,8 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"html/template"
 	"net/http"
-	"yardimbolgesi/admin/helpers"
-	"yardimbolgesi/admin/models"
+	"yardimbolgesi/index/helpers"
+	"yardimbolgesi/index/models"
 )
 
 type Userops struct{}

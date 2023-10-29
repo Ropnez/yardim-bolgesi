@@ -37,5 +37,6 @@ func Routes() *httprouter.Router {
 
 	// Serve static files
 	r.ServeFiles("/admin/assets/*filepath", http.Dir("admin/assets/"))
+	r.ServeFiles("/index/assets/*filepath", http.Dir("index/assets/"))
 	return r
 }
