@@ -18,16 +18,10 @@ services:
           - PMA_HOST=db
   yardim:
     build: .
-    image: yardim
     ports:
       - 80:8080
-      - 443:443
     volumes:
       - yardimdata:/yardim-bolgesi
-      - /path/to/ssl/cert:/etc/ssl/cert
-    environment:
-      SSL_CERT_FILE: /etc/ssl/cert/certificate.crt
-      SSL_KEY_FILE: /etc/ssl/cert/private.key
 
 volumes:
   mysqldata:
